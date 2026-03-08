@@ -46,7 +46,7 @@ displayName="${mod_name}" #mandatory
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Random Quest mod for Minecraft 1.21.4. Assigns players random item quests and rewards them for completing them.
+Mini Quests Enhanced Mod mod for Minecraft 1.21.4. Assigns players random item quests and rewards them for completing them.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.

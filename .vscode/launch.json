@@ -6,17 +6,17 @@
       "request": "launch",
       "name": "Client",
       "presentation": {
-        "group": "Mod Development - RandomQuestMinecraftMod",
+        "group": "Mod Development - MiniQuestsEnhancedMod",
         "order": 0
       },
-      "projectName": "RandomQuestMinecraftMod",
+      "projectName": "MiniQuestsEnhancedMod",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/clientRunProgramArgs.txt"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/clientRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/clientRunVmArgs.txt",
-        "-Dfml.modFolders\u003drandomquest%%/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/bin/main"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dminiquestsenhancedmod%%/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/bin/main"
       ],
       "cwd": "${workspaceFolder}/run",
       "env": {},
@@ -28,17 +28,17 @@
       "request": "launch",
       "name": "Data",
       "presentation": {
-        "group": "Mod Development - RandomQuestMinecraftMod",
+        "group": "Mod Development - MiniQuestsEnhancedMod",
         "order": 1
       },
-      "projectName": "RandomQuestMinecraftMod",
+      "projectName": "MiniQuestsEnhancedMod",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/dataRunProgramArgs.txt"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/dataRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/dataRunVmArgs.txt",
-        "-Dfml.modFolders\u003drandomquest%%/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/bin/main"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dminiquestsenhancedmod%%/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/bin/main"
       ],
       "cwd": "${workspaceFolder}/run",
       "env": {},
@@ -50,17 +50,17 @@
       "request": "launch",
       "name": "GameTestServer",
       "presentation": {
-        "group": "Mod Development - RandomQuestMinecraftMod",
+        "group": "Mod Development - MiniQuestsEnhancedMod",
         "order": 2
       },
-      "projectName": "RandomQuestMinecraftMod",
+      "projectName": "MiniQuestsEnhancedMod",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/gameTestServerRunProgramArgs.txt"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/gameTestServerRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/gameTestServerRunVmArgs.txt",
-        "-Dfml.modFolders\u003drandomquest%%/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/bin/main"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dminiquestsenhancedmod%%/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/bin/main"
       ],
       "cwd": "${workspaceFolder}/run",
       "env": {},
@@ -72,17 +72,17 @@
       "request": "launch",
       "name": "Server",
       "presentation": {
-        "group": "Mod Development - RandomQuestMinecraftMod",
+        "group": "Mod Development - MiniQuestsEnhancedMod",
         "order": 3
       },
-      "projectName": "RandomQuestMinecraftMod",
+      "projectName": "MiniQuestsEnhancedMod",
       "mainClass": "net.neoforged.devlaunch.Main",
       "args": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/serverRunProgramArgs.txt"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/serverRunProgramArgs.txt"
       ],
       "vmArgs": [
-        "@/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/build/moddev/serverRunVmArgs.txt",
-        "-Dfml.modFolders\u003drandomquest%%/Users/eeshamoona/Documents/Documents/RandomQuestMinecraftMod/bin/main"
+        "@/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/build/moddev/serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dminiquestsenhancedmod%%/Users/eeshamoona/Documents/Documents/MiniQuestsEnhancedMod/bin/main"
       ],
       "cwd": "${workspaceFolder}/run",
       "env": {},

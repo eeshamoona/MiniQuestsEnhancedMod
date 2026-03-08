@@ -1,0 +1,9 @@
+{
+  "key.miniquestsenhancedmod.open_quest": "Open Quest",
+  "key.categories.miniquestsenhancedmod": "Mini Quests Enhanced Mod",
+  "container.miniquestsenhancedmod.gacha": "Mini Quests",
+  "item.miniquestsenhancedmod.gold_token": "Gold Token",
+  "item.miniquestsenhancedmod.gold_token.desc": "A shimmering coin earned through hard work. Use it to spin the Gacha!",
+  "item.miniquestsenhancedmod.silver_token": "Silver Token",
+  "item.miniquestsenhancedmod.bronze_token": "Bronze Token"
+}

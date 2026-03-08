@@ -12,13 +12,13 @@
 
 | Property | Value |
 |----------|-------|
-| Mod ID | `randomquest` |
+| Mod ID | `miniquestsenhancedmod` |
 | Mod Name | Eesha's Mini Quests |
 | MC Version | 1.21.4 |
 | NeoForge Version | 21.4.156 |
 | Java Version | 21 (Eclipse Adoptium) |
 | Build System | Gradle 9.2.1 |
-| Entry package | `com.example.randomquest` |
+| Entry package | `com.example.miniquestsenhancedmod` |
 
 ---
 
@@ -138,8 +138,8 @@ Three tiers rolled server-side via `GachaRewards.java`:
 
 | File | Purpose |
 |------|---------|
-| `RandomQuestMod.java` | Main mod entry, wires all registries |
-| `RandomQuestClient.java` | Client entry: keybind (G), countdown tick, screen registration |
+| `MiniQuestsEnhancedMod.java` | Main mod entry, wires all registries |
+| `MiniQuestsEnhancedClient.java` | Client entry: keybind (G), countdown tick, screen registration |
 | `QuestData.java` | Immutable multi-item quest model (parse, encode, trySubmit) |
 | `GachaRewards.java` | Weighted reward pool, `roll()` |
 | `QuestCommand.java` | `/quest start` + `assignQuestToPlayer()` |

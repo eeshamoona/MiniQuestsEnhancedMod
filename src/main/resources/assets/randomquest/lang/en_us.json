@@ -1,9 +1,0 @@
-{
-  "key.randomquest.open_quest": "Open Quest",
-  "key.categories.randomquest": "Random Quest",
-  "container.randomquest.gacha": "Mini Quests",
-  "item.randomquest.gold_token": "Gold Token",
-  "item.randomquest.gold_token.desc": "A shimmering coin earned through hard work. Use it to spin the Gacha!",
-  "item.randomquest.silver_token": "Silver Token",
-  "item.randomquest.bronze_token": "Bronze Token"
-}

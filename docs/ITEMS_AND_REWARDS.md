@@ -6,7 +6,7 @@
 
 ## Quest Input Items
 
-All possible quest items are drawn from `EASY_ITEMS` in [`QuestCommand.java`](src/main/java/com/example/randomquest/command/QuestCommand.java). Every item here is obtainable in standard survival within the first few minutes of gameplay.
+All possible quest items are drawn from `EASY_ITEMS` in [`QuestCommand.java`](src/main/java/com/example/miniquestsenhancedmod/command/QuestCommand.java). Every item here is obtainable in standard survival within the first few minutes of gameplay.
 
 | Category | Items |
 |----------|-------|
@@ -37,7 +37,7 @@ All possible quest items are drawn from `EASY_ITEMS` in [`QuestCommand.java`](sr
 
 ## Rewards
 
-Rewards are rolled server-side via [`GachaRewards.java`](src/main/java/com/example/randomquest/GachaRewards.java) using a weighted pool. The reward appears in the **output slot** of the UI after all quest requirements are fulfilled.
+Rewards are rolled server-side via [`GachaRewards.java`](src/main/java/com/example/miniquestsenhancedmod/GachaRewards.java) using a weighted pool. The reward appears in the **output slot** of the UI after all quest requirements are fulfilled.
 
 ### Reward Pool
 
