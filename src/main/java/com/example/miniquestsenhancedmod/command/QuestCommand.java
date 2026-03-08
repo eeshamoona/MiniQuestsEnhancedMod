@@ -23,21 +23,17 @@ public class QuestCommand {
 
     /** Easy, obtainable items — great for testing. */
     private static final List<Item> EASY_ITEMS = List.of(
-            Items.OAK_LOG, Items.OAK_PLANKS, Items.OAK_SAPLING, Items.STICK,
-            Items.COBBLESTONE, Items.STONE, Items.GRAVEL, Items.FLINT,
-            Items.DIRT, Items.SAND, Items.GRASS_BLOCK,
-            Items.OAK_LEAVES, Items.BIRCH_LEAVES,
-            Items.FERN, Items.DANDELION, Items.POPPY,
-            Items.APPLE, Items.BREAD,
-            Items.COOKED_BEEF, Items.COOKED_CHICKEN, Items.COOKED_PORKCHOP,
-            Items.CARROT, Items.POTATO,
-            Items.WOODEN_PICKAXE, Items.STONE_PICKAXE,
-            Items.WOODEN_SWORD, Items.WOODEN_AXE, Items.WOODEN_SHOVEL,
-            Items.LEATHER, Items.FEATHER, Items.EGG, Items.BONE, Items.STRING,
-            Items.COAL, Items.IRON_INGOT, Items.IRON_NUGGET,
-            Items.TORCH, Items.CRAFTING_TABLE, Items.FURNACE, Items.CHEST,
-            Items.COD, Items.SALMON, Items.TROPICAL_FISH
-    );
+            Items.OAK_LOG, Items.SPRUCE_LOG, Items.BIRCH_LOG, Items.STICK, Items.COBBLESTONE, Items.STONE,
+            Items.SMOOTH_STONE, Items.ANDESITE,
+            Items.DIORITE, Items.GRANITE, Items.TUFF, Items.DEEPSLATE, Items.DIRT, Items.COARSE_DIRT, Items.ROOTED_DIRT,
+            Items.MUD, Items.SAND, Items.RED_SAND, Items.GRAVEL, Items.FLINT, Items.CLAY_BALL,
+            Items.COAL, Items.CHARCOAL, Items.IRON_NUGGET, Items.GOLD_NUGGET, Items.INK_SAC, Items.LEATHER,
+            Items.FEATHER, Items.EGG, Items.BONE, Items.STRING, Items.SPIDER_EYE, Items.ROTTEN_FLESH, Items.APPLE,
+            Items.BREAD, Items.COOKED_BEEF, Items.COOKED_PORKCHOP, Items.COOKED_CHICKEN, Items.COOKED_MUTTON,
+            Items.WHEAT_SEEDS, Items.PUMPKIN_SEEDS, Items.MELON_SEEDS, Items.BEETROOT_SEEDS, Items.WHEAT,
+            Items.SUGAR_CANE, Items.BAMBOO, Items.KELP, Items.CACTUS, Items.SWEET_BERRIES, Items.GLOW_BERRIES,
+            Items.MILK_BUCKET, Items.MOSS_BLOCK, Items.POINTED_DRIPSTONE, Items.WHITE_WOOL, Items.GLASS,
+            Items.RAW_IRON, Items.RAW_COPPER, Items.OAK_SAPLING, Items.LANTERN, Items.SCAFFOLDING);
 
     private static final Random RANDOM = new Random();
 
@@ -46,8 +42,7 @@ public class QuestCommand {
                 Commands.literal("quest")
                         .then(Commands.literal("start")
                                 .requires(src -> src.hasPermission(0))
-                                .executes(QuestCommand::startQuest))
-        );
+                                .executes(QuestCommand::startQuest)));
     }
 
     private static int startQuest(CommandContext<CommandSourceStack> ctx) {
@@ -65,9 +60,9 @@ public class QuestCommand {
      * Called by both /quest start and the auto-quest handler.
      *
      * Quest type weights:
-     *   70% → 1 item type (qty 1–5)
-     *   20% → 2 item types (qty 1–3 each)
-     *   10% → 3 item types (qty 1–2 each)
+     * 70% → 1 item type (qty 1–5)
+     * 20% → 2 item types (qty 1–3 each)
+     * 10% → 3 item types (qty 1–2 each)
      */
     public static void assignQuestToPlayer(ServerPlayer player) {
         int roll = RANDOM.nextInt(10);
@@ -99,7 +94,8 @@ public class QuestCommand {
             Item item = BuiltInRegistries.ITEM.getOptional(ResourceLocation.parse(req.itemKey()))
                     .orElse(net.minecraft.world.item.Items.AIR);
             String name = item.getDefaultInstance().getHoverName().getString();
-            if (i > 0) msg.append(i == requirements.size() - 1 ? " §6+ §e" : ", ");
+            if (i > 0)
+                msg.append(i == requirements.size() - 1 ? " §6+ §e" : ", ");
             msg.append(req.required()).append("× ").append(name);
         }
         player.sendSystemMessage(Component.literal(msg.toString()));

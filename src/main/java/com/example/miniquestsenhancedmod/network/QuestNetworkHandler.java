@@ -18,9 +18,10 @@ public class QuestNetworkHandler {
 
     // ── C→S: open the gacha menu ──────────────────────────────────────────
     public static void handleOpenMenu(QuestPayloads.OpenMenuPayload payload,
-                                      IPayloadContext context) {
+            IPayloadContext context) {
         context.enqueueWork(() -> {
-            if (!(context.player() instanceof ServerPlayer player)) return;
+            if (!(context.player() instanceof ServerPlayer player))
+                return;
             String encoded = player.getData(QuestAttachments.CURRENT_QUEST);
             player.openMenu(
                     new SimpleMenuProvider(
@@ -32,18 +33,22 @@ public class QuestNetworkHandler {
 
     // ── C→S: player clicked SUBMIT ────────────────────────────────────────
     public static void handleSubmit(QuestPayloads.SubmitQuestPayload payload,
-                                    IPayloadContext context) {
+            IPayloadContext context) {
         context.enqueueWork(() -> {
-            if (!(context.player() instanceof ServerPlayer player)) return;
-            if (!(player.containerMenu instanceof GachaContainerMenu menu)) return;
+            if (!(context.player() instanceof ServerPlayer player))
+                return;
+            if (!(player.containerMenu instanceof GachaContainerMenu menu))
+                return;
 
             ItemStack inputStack = menu.getInputItem();
-            if (inputStack.isEmpty()) return;
+            if (inputStack.isEmpty())
+                return;
 
             // Parse quest and try to satisfy a requirement
             String encoded = player.getData(QuestAttachments.CURRENT_QUEST);
             QuestData quest = QuestData.parse(encoded);
-            if (quest.isEmpty()) return;
+            if (quest.isEmpty())
+                return;
 
             QuestData.SubmitResult result = quest.trySubmit(inputStack.getItem(), inputStack.getCount());
             if (result == null) {
@@ -71,7 +76,8 @@ public class QuestNetworkHandler {
 
             // Check if quest is fully complete
             if (updatedQuest.isComplete()) {
-                ItemStack reward = GachaRewards.roll();
+                int difficulty = updatedQuest.items().size();
+                ItemStack reward = GachaRewards.roll(difficulty);
                 menu.setReward(reward);
                 player.containerMenu.broadcastChanges();
 
@@ -85,30 +91,30 @@ public class QuestNetworkHandler {
                 String itemName = inputStack.getItem().getDefaultInstance().getHoverName().getString();
                 player.sendSystemMessage(Component.literal(
                         "§6Submitted: §e" + itemName + " §6(" +
-                        updatedQuest.completedCount() + "/" + updatedQuest.totalCount() + " done)"));
+                                updatedQuest.completedCount() + "/" + updatedQuest.totalCount() + " done)"));
             }
         });
     }
 
     // ── C→S: countdown hit 0 ─────────────────────────────────────────────
     public static void handleRequestNextQuest(QuestPayloads.RequestNextQuestPayload payload,
-                                              IPayloadContext context) {
+            IPayloadContext context) {
         context.enqueueWork(() -> {
-            if (!(context.player() instanceof ServerPlayer player)) return;
+            if (!(context.player() instanceof ServerPlayer player))
+                return;
             QuestCommand.assignQuestToPlayer(player);
         });
     }
 
     // ── S→C: sync quest string ────────────────────────────────────────────
     public static void handleQuestSync(QuestPayloads.QuestSyncPayload payload,
-                                       IPayloadContext context) {
-        context.enqueueWork(() ->
-                ClientQuestCache.setQuestString(payload.questItemKey()));
+            IPayloadContext context) {
+        context.enqueueWork(() -> ClientQuestCache.setQuestString(payload.questItemKey()));
     }
 
     // ── S→C: reward ready — trigger sparkle ──────────────────────────────
     public static void handleGachaResult(QuestPayloads.GachaResultPayload payload,
-                                         IPayloadContext context) {
+            IPayloadContext context) {
         context.enqueueWork(() -> {
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
             if (mc.screen instanceof GachaContainerScreen screen) {

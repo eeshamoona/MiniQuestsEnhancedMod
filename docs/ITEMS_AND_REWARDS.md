@@ -10,16 +10,14 @@ All possible quest items are drawn from `EASY_ITEMS` in [`QuestCommand.java`](sr
 
 | Category | Items |
 |----------|-------|
-| **Wood & Basics** | Oak Log, Oak Planks, Oak Sapling, Stick |
-| **Stone & Mining** | Cobblestone, Stone, Gravel, Flint |
-| **Nature** | Dirt, Sand, Grass Block, Oak Leaves, Birch Leaves, Fern, Dandelion, Poppy |
-| **Food** | Apple, Bread, Cooked Beef, Cooked Chicken, Cooked Porkchop, Carrot, Potato |
-| **Tools** | Wooden Pickaxe, Stone Pickaxe, Wooden Sword, Wooden Axe, Wooden Shovel |
-| **Animal Drops** | Leather, Feather, Egg, Bone, String |
-| **Crafting Components** | Coal, Iron Ingot, Iron Nugget, Torch, Crafting Table, Furnace, Chest |
-| **Fish** | Cod, Salmon, Tropical Fish |
+| **Wood & Basics** | Oak Log, Spruce Log, Birch Log, Jungle Log, Acacia Log, Dark Oak Log, Cherry Log, Stick, Oak Sapling |
+| **Stone & Mining** | Cobblestone, Stone, Smooth Stone, Andesite, Diorite, Granite, Tuff, Deepslate, Gravel, Flint, Raw Iron, Raw Copper |
+| **Nature** | Dirt, Coarse Dirt, Rooted Dirt, Mud, Grass Block, Sand, Red Sand, Clay Ball, Wheat Seeds, Pumpkin Seeds, Melon Seeds, Beetroot Seeds, Wheat, Sugar Cane, Bamboo, Kelp, Cactus, Sweet Berries, Glow Berries, Moss Block, Pointed Dripstone, White Wool, Glass |
+| **Crafting Components** | Coal, Charcoal, Iron Nugget, Gold Nugget, Lead, Lantern, Scaffolding |
+| **Mob Drops** | Ink Sac, Leather, Feather, Egg, Bone, String, Spider Eye, Rotten Flesh |
+| **Food** | Apple, Bread, Cooked Beef, Cooked Porkchop, Cooked Chicken, Cooked Mutton, Milk Bucket |
 
-**Total pool: 43 items**
+**Total pool: 66 items**
 
 ### Quest Type Weighting
 
@@ -39,28 +37,40 @@ All possible quest items are drawn from `EASY_ITEMS` in [`QuestCommand.java`](sr
 
 Rewards are rolled server-side via [`GachaRewards.java`](src/main/java/com/example/miniquestsenhancedmod/GachaRewards.java) using a weighted pool. The reward appears in the **output slot** of the UI after all quest requirements are fulfilled.
 
-### Reward Pool
+Weighting formula based on the **2-Question Framework**:
+`Weight = Math.max(1, 10 / (Effort + Skip))`
 
-| Tier | Effective Chance | Reward | Quantity | Weight |
-|------|-----------------|--------|----------|--------|
-| **Common** | ~52.2% combined | Bread | ×8 | 15 |
-| Common | | Torches | ×16 | 12 |
-| Common | | Arrows | ×16 | 12 |
-| Common | | Cooked Chicken | ×4 | 11 |
-| Common | | Oak Planks | ×32 | 10 |
-| **Uncommon** | ~34.8% combined | Iron Ingot | ×4 | 12 |
-| Uncommon | | Bronze Token | ×1 | 10 |
-| Uncommon | | Gold Ingot | ×2 | 9 |
-| Uncommon | | Bow | ×1 | 9 |
-| **Rare / Epic** | ~13.0% combined | Diamond | ×2 | 5 |
-| Rare / Epic | | Silver Token | ×1 | 4 |
-| Rare / Epic | | Emerald | ×3 | 3 |
-| Rare / Epic | | Saddle | ×1 | 2 |
-| Rare / Epic | | Gold Token | ×1 | 1 |
+### Difficulty Scaling (The "Roll" Logic)
 
-**Total weight: 115**
+The reward pool is now dynamically selected based on the number of item types requested in the quest:
 
-> Effective chance per reward = `weight / 100 × 100%`
+| Quest Difficulty | Input Types | Reward Probability |
+|------------------|-------------|--------------------|
+| **Difficulty 1** | 1 Type | 20% Uncommon, 80% Common |
+| **Difficulty 2** | 2 Types | 50% Uncommon, 50% Common |
+| **Difficulty 3** | 3 Types | 20% Rare/Epic, 80% Uncommon |
+
+### Reward Tiers
+
+| Tier | Reward | Quantity | Effort | Skip | Weight |
+|------|--------|----------|--------|------|--------|
+| **Common** | Experience Bottle | ×16 | 3 | 2 | 2 |
+| Common | Iron Block | ×1 | 3 | 3 | 1 |
+| Common | Firework Rocket | ×32 | 2 | 2 | 2 |
+| Common | Bronze Token | ×1 | 1 | 1 | 5 |
+| **Uncommon** | Golden Apple | ×2 | 3 | 3 | 1 |
+| Uncommon | Ender Pearl | ×2 | 3 | 4 | 1 |
+| Uncommon | Blaze Rod | ×4 | 4 | 4 | 1 |
+| Uncommon | Emerald Block | ×2 | 4 | 3 | 1 |
+| Uncommon | Silver Token | ×1 | 3 | 2 | 2 |
+| **Rare / Epic** | Diamond Block | ×1 | 5 | 5 | 1 |
+| Rare / Epic | Netherite Ingot | ×1 | 5 | 5 | 1 |
+| Rare / Epic | Totem of Undying | ×1 | 5 | 5 | 1 |
+| Rare / Epic | Enchanted Golden Apple | ×1 | 5 | 5 | 1 |
+| Rare / Epic | Shulker Box | ×1 | 5 | 5 | 1 |
+| Rare / Epic | Gold Token | ×1 | 5 | 4 | 1 |
+
+> Effective chance within a tier = `Weight / Tier Total Weight x 100%`
 
 ### Adding / Changing Rewards
 
